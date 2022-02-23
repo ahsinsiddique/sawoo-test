@@ -1,0 +1,12 @@
+
+<ng-container *ngFor="let processor of tradeProcessorData">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{processor.userId}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{processor.amountSell}}</h6>
+      <p class="card-text">{{processor.originatingCountry}}</p>
+      <a href="#" class="card-link">{{processor.timePlaced}}</a>
+    </div>
+  </div>
+</ng-container>
+
