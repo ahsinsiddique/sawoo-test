@@ -2,3 +2,16 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+
+trade-processor {
+  .trade-card {
+    display: flex;
+    justify-content: center;
+
+    padding-top: .4rem;
+    .card {
+      width: 58rem;
+    }
+  }
+}

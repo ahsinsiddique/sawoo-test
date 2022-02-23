@@ -3,6 +3,7 @@ import {TradeProcessorService} from "../../services/trade-processor.service";
 import {TradeProcessor} from "../models/trade-processor";
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 import {SocketService} from "../../services/socket.service";
+import {fromEvent} from "rxjs";
 
 @UntilDestroy()
 @Component({
@@ -20,15 +21,12 @@ export class TradeProcessorComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.fetchData();
     this.socketService.onNewMessage().pipe(untilDestroyed(this))
-      .subscribe((newMessage) => {
-        console.log(newMessage);
-
+      .subscribe((newMessage: any) => {
+        this.tradeProcessorData.push(newMessage);
       });
   }
 
-
   fetchData = () => {
-
     this.tradeProcessorService.getTradeProcessorData()
       .pipe(untilDestroyed(this))
       .subscribe((data: Array<TradeProcessor>) => {

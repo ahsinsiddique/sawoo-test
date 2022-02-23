@@ -1,4 +1,5 @@
 export class TradeProcessor {
+  id?: number;
   userId?: string;
 
   currencyFrom?: string;
